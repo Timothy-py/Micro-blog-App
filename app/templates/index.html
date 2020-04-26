@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{title}} - Microblog
+{% endblock title %}
+
+{% block body %}
+    <h1>Hello, {{user.username}}</h1>
+    {% if post %}
+        {% for p in post %}
+            <h2>{{p['author']['username']}}</h2>
+            <p>{{p['body']}}</p>
+        {% endfor %}
+    {% else %}
+        <h1>No Post No Show</h1>
+    {% endif %}
+{% endblock %}

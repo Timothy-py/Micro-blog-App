@@ -1,5 +1,6 @@
 from flask import Flask
+from .config import Config
+
 
 appInstance = Flask(__name__)
-
-from app import routes
+appInstance.config.from_object(Config)
