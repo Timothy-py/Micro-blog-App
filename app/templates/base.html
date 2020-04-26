@@ -2,12 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %} Microblog {% endblock title %}</title>
+    <title>{% block title %} {{title}} - Microblog {% endblock title %}</title>
 </head>
 <body>
     <nav>
-        <a href="#">Home</a>
+        Micro-Blog
+        <a href="{{url_for('index')}}">Home</a>
+        <a href="{{url_for('login')}}">Login</a>
     </nav>
+    <hr>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{message}}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
     {% block body %}
     {% endblock body %}
 </body>
