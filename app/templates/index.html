@@ -5,13 +5,10 @@
 {% endblock title %}
 
 {% block body %}
-    <h1>Hello, {{user.username}}</h1>
-    {% if post %}
-        {% for p in post %}
-            <h2>{{p['author']['username']}}</h2>
-            <p>{{p['body']}}</p>
-        {% endfor %}
-    {% else %}
-        <h1>No Post No Show</h1>
-    {% endif %}
+    <h1>Hello, {{current_user.nickname}}</h1>
+    {% for post in posts %}
+        <div>
+            <p>{{post.author.nickname}} says: <b>{{post.body}}</b></p>
+        </div>
+    {% endfor %}
 {% endblock %}
